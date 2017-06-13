@@ -11,7 +11,7 @@ import com.bwei.mvpdemo.view.IMainView;
  *
  *
  */
-public class MainActivithPresenter implements MainActivityModelImpl.MainActivityModelListener {
+public class MainActivithPresenter  {
 
 
 
@@ -23,7 +23,7 @@ public class MainActivithPresenter implements MainActivityModelImpl.MainActivity
     public MainActivithPresenter(IMainView mainView){
 
         this.mainView = mainView ;
-        this.mainActivityModelImpl = new MainActivityModelImpl(this);
+        this.mainActivityModelImpl = new MainActivityModelImpl();
 
     }
 
@@ -44,7 +44,21 @@ public class MainActivithPresenter implements MainActivityModelImpl.MainActivity
 
             return;
         }
-        mainActivityModelImpl.login(username,password);
+
+        mainActivityModelImpl.login(username, password, new MainActivityModelImpl.MainActivityModelListener() {
+            @Override
+            public void onSuccess() {
+
+                mainView.loginSucuess();
+
+            }
+
+            @Override
+            public void onFailed() {
+                mainView.loginFailed();
+
+            }
+        });
 
 
 
@@ -53,17 +67,4 @@ public class MainActivithPresenter implements MainActivityModelImpl.MainActivity
     }
 
 
-    @Override
-    public void onSuccess() {
-
-        mainView.loginSucuess();
-
-    }
-
-    @Override
-    public void onFailed() {
-
-        mainView.loginFailed();
-
-    }
 }

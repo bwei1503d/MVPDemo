@@ -9,7 +9,7 @@ public interface IMainActivityModel {
     //做方法的申明
 
     //登录
-    public void login(String username,String password);
+    public void login(String username,String password,MainActivityModelImpl.MainActivityModelListener listener);
 
     // 忘记密码
     public void forget(String phone);

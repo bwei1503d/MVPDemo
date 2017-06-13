@@ -1,6 +1,7 @@
 package com.bwei.mvpdemo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-// 处理view 的显示 隐藏  还有view 的常用事件
+// 处理view 的显示 隐藏  还有view 的常用事件(View交互的)
 
 public class MainActivity extends Activity implements IMainView {
 
@@ -58,6 +59,14 @@ public class MainActivity extends Activity implements IMainView {
     }
 
 
+    @OnClick(R.id.register)
+    public void registerBtn(View view){
+
+        startActivity(new Intent(this,RegisterActivity.class));
+
+
+    }
+
     @Override
     public void usernameEmpty() {
 
@@ -94,6 +103,15 @@ public class MainActivity extends Activity implements IMainView {
 
             }
         });
+
+
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter = null ;
 
 
     }

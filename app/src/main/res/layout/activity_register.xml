@@ -5,38 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.bwei.mvpdemo.MainActivity">
-
+    tools:context="com.bwei.mvpdemo.RegisterActivity">
 
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="11111111111"
-        android:id="@+id/username"/>
+        android:id="@+id/register_username"/>
 
 
     <EditText
         android:text="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/password"/>
+        android:id="@+id/register_password"/>
 
 
     <Button
-        android:text="登录"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn"/>
-
-
-
-    <Button
-        android:text="注册"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/register"/>
-
-
+        android:id="@+id/register_btn"/>
 
 </LinearLayout>

@@ -21,8 +21,7 @@ public class MainActivityModelImpl implements IMainActivityModel {
 
     public MainActivityModelListener listener ;
 
-    public MainActivityModelImpl(MainActivityModelListener listener){
-        this.listener = listener ;
+    public MainActivityModelImpl(){
     }
 
 
@@ -33,8 +32,9 @@ public class MainActivityModelImpl implements IMainActivityModel {
     // postkey = 1503d
 
     @Override
-    public void login(String username, String password) {
+    public void login(String username, String password,final MainActivityModelListener listener) {
 
+        System.out.println("Thread.currentThread().getName() = " + Thread.currentThread().getName());
 
         StringBuilder builder = new StringBuilder();
 
@@ -59,8 +59,9 @@ public class MainActivityModelImpl implements IMainActivityModel {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
-               String result =   response.body().string() ;
+                String result =   response.body().string() ;
 
+                System.out.println("result = " + Thread.currentThread().getName());
 
                 listener.onSuccess();
 
